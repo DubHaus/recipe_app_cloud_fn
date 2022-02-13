@@ -9,7 +9,7 @@ exports.handleWebhook = (request, response) => {
           {
             text: {
               //fulfillment text response to be sent to the agent
-              text: ["Hi! this is webhook responce"],
+              text: ["Hi! this is webhook responce from GC repo"],
             },
           },
         ],
