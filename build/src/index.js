@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleWebhook = void 0;
 const handleWebhook = (request, response) => {
+    const { body } = request;
     const jsonResponse = {
         fulfillment_response: {
             messages: [
