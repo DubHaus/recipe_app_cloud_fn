@@ -1,24 +1,5 @@
 import {FieldValue} from 'google-protobuf';
 
-export type WebHookRequestBody = {
-  detectIntentResponseId: string;
-  languageCode: string;
-  fulfillmentInfo: FulfillmentInfo;
-  intentInfo: IntentInfo;
-  pageInfo: PageInfo;
-  sessionInfo: SessionInfo;
-  messages: ResponseMessage[];
-  payload: {};
-  sentimentAnalysisResult: SentimentAnalysisResult;
-
-  // Union field query can be only one of the following:
-  text: string;
-  triggerIntent: string;
-  transcript: string;
-  triggerEvent: string;
-  // End of list of possible types for union field query.
-};
-
 export type FulfillmentInfo = {
   tag: string;
 };
@@ -46,15 +27,15 @@ export type SessionInfo = {
 };
 
 export type ResponseMessage = {
-  text: Text;
-  payload: {};
-  conversationSuccess: ConversationSuccess;
-  outputAudioText: OutputAudioText;
-  liveAgentHandoff: LiveAgentHandoff;
-  endInteraction: {};
-  playAudio: PlayAudio;
-  mixedAudio: MixedAudio;
-  telephonyTransferCall: TelephonyTransferCall;
+  text?: Text;
+  payload?: {};
+  conversationSuccess?: ConversationSuccess;
+  outputAudioText?: OutputAudioText;
+  liveAgentHandoff?: LiveAgentHandoff;
+  endInteraction?: {};
+  playAudio?: PlayAudio;
+  mixedAudio?: MixedAudio;
+  telephonyTransferCall?: TelephonyTransferCall;
 };
 
 export type FormInfo = {
