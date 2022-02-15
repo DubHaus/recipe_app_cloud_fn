@@ -6,7 +6,15 @@ export const handleWebhook: HttpFunction = (request, response) => {
   const body = request.body as WebHookRequestBody;
 
   const jsonResponse = {
-    fulfillmentResponse: {messages: [{text: {text: ['Hi from cloud fn!']}}]},
+    fulfillmentResponse: {
+      sessionInfo: {
+        parameters: [
+          {
+            recipeName: 'Pasta Carbonara',
+          },
+        ],
+      },
+    },
   } as WebHooksResponceBody;
 
   response.send(jsonResponse);
