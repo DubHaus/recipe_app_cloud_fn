@@ -1,0 +1,23 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+  - name: 'bash'
+    args: [cp, 'package.json', 'build']
+  - name: 'bash'
+    args: [cp, 'package-lock.json', 'build']
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      [
+        functions,
+        deploy,
+        recipe,
+        --entry-point,
+        handleWebhook,
+        --runtime,
+        nodejs16,
+        --trigger-http,
+        --region,
+        europe-west3,
+      ]
